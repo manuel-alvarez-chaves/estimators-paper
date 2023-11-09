@@ -1,0 +1,100 @@
+2023-11-09 11:01:15 - Creating converter from 3 to 5
+2023-11-09 11:04:11 - Creating converter from 3 to 5
+2023-11-09 11:05:56 - Creating converter from 3 to 5
+2023-11-09 11:06:46 - Creating converter from 3 to 5
+2023-11-09 11:07:44 - Creating converter from 3 to 5
+2023-11-09 11:07:44 - (UNIFORM, scott, 10000, 1) - Time: 0.00077 s - Est.: 0.404 nats
+2023-11-09 11:07:44 - (UNIFORM, qs, 10000, 1) - Time: 0.15024 s - Est.: 0.398 nats
+2023-11-09 11:07:47 - (UNIFORM, scott, 10000, 2) - Time: 0.00039 s - Est.: 0.404 nats
+2023-11-09 11:07:47 - (UNIFORM, qs, 10000, 2) - Time: 0.15119 s - Est.: 0.399 nats
+2023-11-09 11:07:49 - (UNIFORM, scott, 10000, 3) - Time: 0.00057 s - Est.: 0.404 nats
+2023-11-09 11:07:50 - (UNIFORM, qs, 10000, 3) - Time: 0.16666 s - Est.: 0.399 nats
+2023-11-09 11:07:52 - (UNIFORM, scott, 10000, 4) - Time: 0.00041 s - Est.: 0.404 nats
+2023-11-09 11:07:52 - (UNIFORM, qs, 10000, 4) - Time: 0.17897 s - Est.: 0.399 nats
+2023-11-09 11:07:56 - (UNIFORM, scott, 10000, 5) - Time: 0.00052 s - Est.: 0.404 nats
+2023-11-09 11:07:56 - (UNIFORM, qs, 10000, 5) - Time: 0.20016 s - Est.: 0.400 nats
+2023-11-09 11:07:59 - Creating converter from 5 to 3
+2023-11-09 11:13:28 - Creating converter from 3 to 5
+2023-11-09 11:13:29 - (UNIFORM, scott, 10000, 1) - Time: 0.00044 s - Est.: 0.404 nats
+2023-11-09 11:13:29 - (UNIFORM, qs, 10000, 1) - Time: 0.14476 s - Est.: 0.400 nats
+2023-11-09 11:13:31 - (UNIFORM, scott, 10000, 2) - Time: 0.00074 s - Est.: 0.404 nats
+2023-11-09 11:13:31 - (UNIFORM, qs, 10000, 2) - Time: 0.14826 s - Est.: 0.399 nats
+2023-11-09 11:13:34 - (UNIFORM, scott, 10000, 3) - Time: 0.00038 s - Est.: 0.404 nats
+2023-11-09 11:13:34 - (UNIFORM, qs, 10000, 3) - Time: 0.15764 s - Est.: 0.400 nats
+2023-11-09 11:13:37 - (UNIFORM, scott, 10000, 4) - Time: 0.00043 s - Est.: 0.404 nats
+2023-11-09 11:13:37 - (UNIFORM, qs, 10000, 4) - Time: 0.14677 s - Est.: 0.399 nats
+2023-11-09 11:13:39 - (UNIFORM, scott, 10000, 5) - Time: 0.00038 s - Est.: 0.404 nats
+2023-11-09 11:13:39 - (UNIFORM, qs, 10000, 5) - Time: 0.15945 s - Est.: 0.401 nats
+2023-11-09 11:14:38 - (NORMAL, scott, 10000, 1) - Time: 0.00054 s - Est.: 2.318 nats
+2023-11-09 11:14:38 - (NORMAL, qs, 10000, 1) - Time: 0.15078 s - Est.: 2.328 nats
+2023-11-09 11:14:40 - (NORMAL, scott, 10000, 2) - Time: 0.00042 s - Est.: 2.330 nats
+2023-11-09 11:14:40 - (NORMAL, qs, 10000, 2) - Time: 0.14313 s - Est.: 2.320 nats
+2023-11-09 11:14:43 - (NORMAL, scott, 10000, 3) - Time: 0.00047 s - Est.: 2.333 nats
+2023-11-09 11:14:43 - (NORMAL, qs, 10000, 3) - Time: 0.14682 s - Est.: 2.332 nats
+2023-11-09 11:14:45 - (NORMAL, scott, 10000, 4) - Time: 0.00043 s - Est.: 2.339 nats
+2023-11-09 11:14:46 - (NORMAL, qs, 10000, 4) - Time: 0.14787 s - Est.: 2.326 nats
+2023-11-09 11:14:48 - (NORMAL, scott, 10000, 5) - Time: 0.00080 s - Est.: 2.329 nats
+2023-11-09 11:14:48 - (NORMAL, qs, 10000, 5) - Time: 0.17545 s - Est.: 2.323 nats
+2023-11-09 11:14:51 - Creating converter from 5 to 3
+2023-11-09 11:15:31 - (NORMAL-MIXTURE, scott, 10000, 1) - Time: 0.00039 s - Est.: 2.377 nats
+2023-11-09 11:15:31 - (NORMAL-MIXTURE, qs, 10000, 1) - Time: 0.15296 s - Est.: 2.355 nats
+2023-11-09 11:15:33 - (NORMAL-MIXTURE, scott, 10000, 2) - Time: 0.00046 s - Est.: 2.383 nats
+2023-11-09 11:15:34 - (NORMAL-MIXTURE, qs, 10000, 2) - Time: 0.15071 s - Est.: 2.368 nats
+2023-11-09 11:15:36 - (NORMAL-MIXTURE, scott, 10000, 3) - Time: 0.00039 s - Est.: 2.386 nats
+2023-11-09 11:15:36 - (NORMAL-MIXTURE, qs, 10000, 3) - Time: 0.14773 s - Est.: 2.383 nats
+2023-11-09 11:15:39 - (NORMAL-MIXTURE, scott, 10000, 4) - Time: 0.00062 s - Est.: 2.393 nats
+2023-11-09 11:15:39 - (NORMAL-MIXTURE, qs, 10000, 4) - Time: 0.14548 s - Est.: 2.393 nats
+2023-11-09 11:15:41 - (NORMAL-MIXTURE, scott, 10000, 5) - Time: 0.00038 s - Est.: 2.398 nats
+2023-11-09 11:15:41 - (NORMAL-MIXTURE, qs, 10000, 5) - Time: 0.15224 s - Est.: 2.395 nats
+2023-11-09 11:15:58 - (EXPONENTIAL, scott, 10000, 1) - Time: 0.00041 s - Est.: 0.302 nats
+2023-11-09 11:15:58 - (EXPONENTIAL, qs, 10000, 1) - Time: 0.18552 s - Est.: 0.291 nats
+2023-11-09 11:16:00 - (EXPONENTIAL, scott, 10000, 2) - Time: 0.00051 s - Est.: 0.302 nats
+2023-11-09 11:16:01 - (EXPONENTIAL, qs, 10000, 2) - Time: 0.15231 s - Est.: 0.299 nats
+2023-11-09 11:16:03 - (EXPONENTIAL, scott, 10000, 3) - Time: 0.00034 s - Est.: 0.320 nats
+2023-11-09 11:16:03 - (EXPONENTIAL, qs, 10000, 3) - Time: 0.14498 s - Est.: 0.339 nats
+2023-11-09 11:16:06 - (EXPONENTIAL, scott, 10000, 4) - Time: 0.00047 s - Est.: 0.319 nats
+2023-11-09 11:16:06 - (EXPONENTIAL, qs, 10000, 4) - Time: 0.20482 s - Est.: 0.293 nats
+2023-11-09 11:16:10 - (EXPONENTIAL, scott, 10000, 5) - Time: 0.00049 s - Est.: 0.313 nats
+2023-11-09 11:16:10 - (EXPONENTIAL, qs, 10000, 5) - Time: 0.21115 s - Est.: 0.312 nats
+2023-11-09 11:20:39 - Creating converter from 3 to 5
+2023-11-09 11:20:39 - (UNIFORM, scott, 10000, 1) - Time: 0.00063 s - Est.: 0.404 nats
+2023-11-09 11:20:39 - (UNIFORM, qs, 10000, 1) - Time: 0.15241 s - Est.: 0.400 nats
+2023-11-09 11:20:41 - (UNIFORM, scott, 10000, 2) - Time: 0.00050 s - Est.: 0.404 nats
+2023-11-09 11:20:42 - (UNIFORM, qs, 10000, 2) - Time: 0.14863 s - Est.: 0.400 nats
+2023-11-09 11:20:44 - (UNIFORM, scott, 10000, 3) - Time: 0.00067 s - Est.: 0.404 nats
+2023-11-09 11:20:44 - (UNIFORM, qs, 10000, 3) - Time: 0.15109 s - Est.: 0.400 nats
+2023-11-09 11:20:47 - (UNIFORM, scott, 10000, 4) - Time: 0.00045 s - Est.: 0.404 nats
+2023-11-09 11:20:47 - (UNIFORM, qs, 10000, 4) - Time: 0.16850 s - Est.: 0.399 nats
+2023-11-09 11:20:49 - (UNIFORM, scott, 10000, 5) - Time: 0.00042 s - Est.: 0.404 nats
+2023-11-09 11:20:50 - (UNIFORM, qs, 10000, 5) - Time: 0.15317 s - Est.: 0.400 nats
+2023-11-09 11:21:45 - Creating converter from 3 to 5
+2023-11-09 11:21:45 - (BIVARIATE-NORMAL, scott, 10000, 1) - Time: 0.00088 s - Est.: 2.636 nats
+2023-11-09 11:21:45 - (BIVARIATE-NORMAL, scott, 10000, 2) - Time: 0.00124 s - Est.: 2.619 nats
+2023-11-09 11:21:45 - (BIVARIATE-NORMAL, scott, 10000, 3) - Time: 0.00087 s - Est.: 2.617 nats
+2023-11-09 11:21:45 - (BIVARIATE-NORMAL, scott, 10000, 4) - Time: 0.00086 s - Est.: 2.626 nats
+2023-11-09 11:21:45 - (BIVARIATE-NORMAL, scott, 10000, 5) - Time: 0.00087 s - Est.: 2.628 nats
+2023-11-09 11:21:45 - Creating converter from 5 to 3
+2023-11-09 11:22:20 - (BIVARIATE-NORMAL-MIXTURE, scott, 10000, 1) - Time: 0.00114 s - Est.: 3.278 nats
+2023-11-09 11:22:20 - (BIVARIATE-NORMAL-MIXTURE, scott, 10000, 2) - Time: 0.00101 s - Est.: 3.280 nats
+2023-11-09 11:22:20 - (BIVARIATE-NORMAL-MIXTURE, scott, 10000, 3) - Time: 0.00155 s - Est.: 3.284 nats
+2023-11-09 11:22:20 - (BIVARIATE-NORMAL-MIXTURE, scott, 10000, 4) - Time: 0.00086 s - Est.: 3.287 nats
+2023-11-09 11:22:20 - (BIVARIATE-NORMAL-MIXTURE, scott, 10000, 5) - Time: 0.00097 s - Est.: 3.278 nats
+2023-11-09 11:22:37 - (GEXP, scott, 10000, 1) - Time: 0.00134 s - Est.: 1.928 nats
+2023-11-09 11:22:38 - (GEXP, scott, 10000, 2) - Time: 0.00133 s - Est.: 1.885 nats
+2023-11-09 11:22:38 - (GEXP, scott, 10000, 3) - Time: 0.00093 s - Est.: 1.898 nats
+2023-11-09 11:22:38 - (GEXP, scott, 10000, 4) - Time: 0.00154 s - Est.: 1.891 nats
+2023-11-09 11:22:38 - (GEXP, scott, 10000, 5) - Time: 0.00145 s - Est.: 1.889 nats
+2023-11-09 11:23:06 - (4D-GAUSSIAN, scott, 10000, 1) - Time: 0.28427 s - Est.: 1.857 nats
+2023-11-09 15:34:48 - Creating converter from 3 to 5
+2023-11-09 15:46:30 - Creating converter from 3 to 5
+2023-11-09 15:46:30 - (UNIFORM, scott, 10000, 1)                                     - Time: 0.00079 s                                     - Est.: 0.259 nats
+2023-11-09 15:46:30 - (UNIFORM, scott, 10000, 2)                                     - Time: 0.00073 s                                     - Est.: 0.266 nats
+2023-11-09 15:46:30 - (UNIFORM, scott, 10000, 3)                                     - Time: 0.00066 s                                     - Est.: 0.262 nats
+2023-11-09 15:46:30 - (UNIFORM, scott, 10000, 4)                                     - Time: 0.00199 s                                     - Est.: 0.275 nats
+2023-11-09 15:46:30 - (UNIFORM, scott, 10000, 5)                                     - Time: 0.00069 s                                     - Est.: 0.263 nats
+2023-11-09 15:47:05 - (UNIFORM, scott, 10000, 1)                                     - Time: 0.00071 s                                     - Est.: 0.259 nats
+2023-11-09 15:47:05 - (UNIFORM, scott, 10000, 2)                                     - Time: 0.00087 s                                     - Est.: 0.266 nats
+2023-11-09 15:47:05 - (UNIFORM, scott, 10000, 3)                                     - Time: 0.00094 s                                     - Est.: 0.262 nats
+2023-11-09 15:47:05 - (UNIFORM, scott, 10000, 4)                                     - Time: 0.00083 s                                     - Est.: 0.275 nats
+2023-11-09 15:47:05 - (UNIFORM, scott, 10000, 5)                                     - Time: 0.00083 s                                     - Est.: 0.263 nats
+2023-11-09 15:47:05 - Creating converter from 5 to 3

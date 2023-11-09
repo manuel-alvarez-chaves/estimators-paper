@@ -21,3 +21,25 @@
 2023-11-09 09:51:38 - (GEXP, scott, 10000, 4) - Time: 0.00362 s - Est.: 0.183 nats
 2023-11-09 09:51:38 - (GEXP, scott, 10000, 5) - Time: 0.00337 s - Est.: 0.183 nats
 2023-11-09 09:52:22 - (4D-GAUSSIAN, scott, 10000, 1) - Time: 1.85234 s - Est.: 2.645 nats
+2023-11-09 19:11:54 - Creating converter from 3 to 5
+2023-11-09 19:12:12 - (BIVARIATE-NORMAL, scott, 10000, 1) - Time: 0.00457 s - Est.: 0.210 nats
+2023-11-09 19:12:12 - (BIVARIATE-NORMAL, scott, 10000, 2) - Time: 0.00342 s - Est.: 0.217 nats
+2023-11-09 19:12:12 - (BIVARIATE-NORMAL, scott, 10000, 3) - Time: 0.00360 s - Est.: 0.206 nats
+2023-11-09 19:12:13 - (BIVARIATE-NORMAL, scott, 10000, 4) - Time: 0.00411 s - Est.: 0.208 nats
+2023-11-09 19:12:13 - (BIVARIATE-NORMAL, scott, 10000, 5) - Time: 0.00369 s - Est.: 0.215 nats
+2023-11-09 19:12:25 - (BIVARIATE-NORMAL, scott, 10000, 1) - Time: 0.00509 s - Est.: 0.210 nats
+2023-11-09 19:12:26 - (BIVARIATE-NORMAL, scott, 10000, 2) - Time: 0.00484 s - Est.: 0.217 nats
+2023-11-09 19:12:26 - (BIVARIATE-NORMAL, scott, 10000, 3) - Time: 0.00547 s - Est.: 0.206 nats
+2023-11-09 19:12:26 - (BIVARIATE-NORMAL, scott, 10000, 4) - Time: 0.00371 s - Est.: 0.208 nats
+2023-11-09 19:12:26 - (BIVARIATE-NORMAL, scott, 10000, 5) - Time: 0.00357 s - Est.: 0.215 nats
+2023-11-09 19:14:21 - (BIVARIATE-NORMAL-MIXTURE, scott, 10000, 1) - Time: 0.00569 s - Est.: 0.191 nats
+2023-11-09 19:14:21 - (BIVARIATE-NORMAL-MIXTURE, scott, 10000, 2) - Time: 0.00556 s - Est.: 0.188 nats
+2023-11-09 19:14:21 - (BIVARIATE-NORMAL-MIXTURE, scott, 10000, 3) - Time: 0.00494 s - Est.: 0.181 nats
+2023-11-09 19:14:21 - (BIVARIATE-NORMAL-MIXTURE, scott, 10000, 4) - Time: 0.00401 s - Est.: 0.188 nats
+2023-11-09 19:14:22 - (BIVARIATE-NORMAL-MIXTURE, scott, 10000, 5) - Time: 0.00605 s - Est.: 0.190 nats
+2023-11-09 19:15:02 - (GEXP, scott, 10000, 1) - Time: 0.00580 s - Est.: 0.191 nats
+2023-11-09 19:15:03 - (GEXP, scott, 10000, 2) - Time: 0.00463 s - Est.: 0.202 nats
+2023-11-09 19:15:03 - (GEXP, scott, 10000, 3) - Time: 0.00355 s - Est.: 0.187 nats
+2023-11-09 19:15:03 - (GEXP, scott, 10000, 4) - Time: 0.00384 s - Est.: 0.183 nats
+2023-11-09 19:15:03 - (GEXP, scott, 10000, 5) - Time: 0.00473 s - Est.: 0.183 nats
+2023-11-09 19:15:16 - (4D-GAUSSIAN, scott, 10000, 1) - Time: 4.54912 s - Est.: 2.645 nats

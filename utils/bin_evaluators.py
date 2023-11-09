@@ -36,7 +36,7 @@ class EvaluatorBIN(Evaluator):
                             start_time = time.perf_counter()
                             estimate = calc_qs_entropy(data.flatten())
                             text = (
-                                f"({experiment.upper()}, {hp}, {n}, {s}) "
+                                f"({experiment.upper()}, qs, {n}, {s}) "
                                 f"- Time: {time.perf_counter() - start_time:.5f} s "
                                 f"- Est.: {estimate:.3f} nats"
                             )

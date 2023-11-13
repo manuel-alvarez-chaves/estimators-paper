@@ -39,7 +39,7 @@ class Evaluator():
                 gg.attrs[self.quantity] = truth
                 gg.attrs["sample_sizes"] = self.sample_sizes
                 gg.attrs["seeds"] = self.seeds
-                gg.create_dataset("results", data = self.results)
+                gg.create_dataset("results", data = self.results, chunks=True, maxshape=(self.results.shape[0], self.results.shape[1], None))
         except:
             pass
 
@@ -61,6 +61,19 @@ class Evaluator():
                 gg.create_dataset("results", data = self.results)
         except:
             pass
+
+    def append_to_hdf5(self, name_to_access, data_to_append):
+        with h5py.File(self.out_path, "a") as f:
+            # Attributes
+            seeds_in_dset = f["h"]["uniform"].attrs["seeds"]
+            del f["h"]["uniform"].attrs["seeds"]
+            f["h"]["uniform"].attrs["seeds"] = np.append(seeds_in_dset, self.seeds)
+
+            # Data
+            dset = f[self.quantity][name_to_access]
+            dset = f[self.quantity][name_to_access]["results"]
+            dset.resize(dset.shape[2] + data_to_append.shape[2], axis=2)
+            dset[:, :, -data_to_append.shape[2]:] = data_to_append
 
     def evaluate(self, experiment: str, estimator: callable, hp_to_time: str):
         res = np.zeros(shape=(len(self.hyper_params), len(self.sample_sizes), len(self.seeds)))

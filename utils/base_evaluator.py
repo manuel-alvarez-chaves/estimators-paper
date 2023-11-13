@@ -85,7 +85,7 @@ class Evaluator():
                     for idx, hp in enumerate([hp for hp in self.hyper_params if hp != "qs"]):
                         if n == 10_000 and hp == hp_to_time: # Time for 10 000 samples
                             start_time = time.perf_counter()
-                            estimate = sum(list(estimator(data, hp)))
+                            estimate = estimator(data, hp)
                             text = (
                                 f"({experiment.upper()}, {hp}, {n}, {s}) "
                                 f"- Time: {time.perf_counter() - start_time:.5f} s "
@@ -95,3 +95,4 @@ class Evaluator():
                         else:
                             estimate = estimator(data, hp)
                         res[idx, idy, idz] = estimate
+        self.results = res

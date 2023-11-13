@@ -390,13 +390,13 @@ mu1 = np.zeros(shape=(d))
 sigma1 = 0.9 * np.ones(shape=(d, d))
 np.fill_diagonal(sigma1, 1.0)
 dist1 = stats.multivariate_normal(mean=mu1, cov=sigma1)
-gauss10d_1_params = [[mu1, sigma1, 1.0]]
+gauss10d_1_params = [[mu1.tolist(), sigma1.tolist(), 1.0]]
 
 mu2 = np.zeros(shape=(d))
 sigma2 = 0.1 * np.ones(shape=(d, d))
 np.fill_diagonal(sigma2, 1.0)
 dist2 = stats.multivariate_normal(mean=mu2, cov=sigma2)
-gauss10d_2_params = [[mu2, sigma2, 1.0]]
+gauss10d_2_params = [[mu2.tolist(), sigma2.tolist(), 1.0]]
 
 logger.info(f"Started case: {case.upper()}")
 start = time.time()

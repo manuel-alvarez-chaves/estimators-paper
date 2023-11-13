@@ -34,3 +34,12 @@
 2023-11-13 19:45:44 - (GEXP, silverman, 10000, 2) - Time: 3.42248 s - Est.: -0.261 nats
 2023-11-13 19:46:35 - (GEXP, silverman, 10000, 3) - Time: 3.46895 s - Est.: -0.265 nats
 2023-11-13 19:49:44 - Creating converter from 3 to 5
+2023-11-13 19:50:56 - Creating converter from 3 to 5
+2023-11-13 19:51:04 - (GEXP, silverman, 10000, 1) - Time: 4.04794 s - Est.: 0.287 nats
+2023-11-13 19:51:51 - (GEXP, silverman, 10000, 2) - Time: 2.89513 s - Est.: 0.261 nats
+2023-11-13 19:52:36 - (GEXP, silverman, 10000, 3) - Time: 2.86875 s - Est.: 0.265 nats
+2023-11-13 19:54:06 - (4D-GAUSSIAN, silverman, 10000, 1) - Time: 3.47519 s - Est.: 1.356 nats
+2023-11-13 19:54:50 - Creating converter from 5 to 3
+2023-11-13 19:55:42 - (10D-GAUSSIAN, silverman, 10000, 1) - Time: 4.62349 s - Est.: 67.311 nats
+2023-11-13 19:56:54 - (10D-GAUSSIAN, silverman, 10000, 1) - Time: 4.11819 s - Est.: 67.311 nats
+2023-11-13 19:58:13 - (10D-GAUSSIAN, silverman, 10000, 1) - Time: 3.31315 s - Est.: 67.311 nats

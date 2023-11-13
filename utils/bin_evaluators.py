@@ -6,7 +6,7 @@ from utils.base_evaluator import Evaluator
 from unite_toolbox.bin_estimators import estimate_ideal_bins, calc_qs_entropy
 from unite_toolbox.bin_estimators import calc_bin_entropy, calc_bin_mutual_information, calc_bin_kld
 
-class EvaluatorBIN(Evaluator):
+class Evaluator_BIN(Evaluator):
     def __init__(self):
         super().__init__()
 

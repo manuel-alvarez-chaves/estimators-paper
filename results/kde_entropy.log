@@ -32,3 +32,10 @@
 2023-11-13 15:43:52 - (BIVARIATE-NORMAL, silverman, 10000, 1) - Time: 3.39992 s - Est.: 0.156 nats
 2023-11-13 15:45:25 - (BIVARIATE-NORMAL, silverman, 10000, 2) - Time: 7.63064 s - Est.: 0.161 nats
 2023-11-13 15:46:46 - (BIVARIATE-NORMAL, silverman, 10000, 3) - Time: 5.65617 s - Est.: 0.152 nats
+2023-11-14 09:48:48 - Creating converter from 3 to 5
+2023-11-14 09:48:48 - (UNIFORM, silverman, 10000, 1) - Time: 0.03579 s - Est.: 0.421 nats
+2023-11-14 09:48:49 - (UNIFORM, silverman, 10000, 2) - Time: 0.03143 s - Est.: 0.421 nats
+2023-11-14 09:50:33 - Creating converter from 3 to 5
+2023-11-14 09:50:33 - (UNIFORM, silverman, 10000, 1) - Time: 0.03603 s - Est.: 0.421 nats
+2023-11-14 09:50:34 - (UNIFORM, silverman, 10000, 2) - Time: 0.03934 s - Est.: 0.421 nats
+2023-11-14 09:50:34 - Creating converter from 5 to 3

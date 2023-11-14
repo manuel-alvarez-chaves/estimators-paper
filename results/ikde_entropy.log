@@ -1,0 +1,19 @@
+2023-11-14 09:50:33 - Creating converter from 3 to 5
+2023-11-14 09:50:33 - (UNIFORM, silverman, 10000, 1) - Time: 0.03603 s - Est.: 0.421 nats
+2023-11-14 09:50:34 - (UNIFORM, silverman, 10000, 2) - Time: 0.03934 s - Est.: 0.421 nats
+2023-11-14 09:50:34 - Creating converter from 5 to 3
+2023-11-14 09:50:43 - Creating converter from 3 to 5
+2023-11-14 09:50:43 - (UNIFORM, silverman, 10000, 1) - Time: 0.03320 s - Est.: 0.421 nats
+2023-11-14 09:50:43 - (UNIFORM, silverman, 10000, 2) - Time: 0.02605 s - Est.: 0.421 nats
+2023-11-14 09:50:48 - (NORMAL, silverman, 10000, 1) - Time: 0.07233 s - Est.: 2.332 nats
+2023-11-14 09:50:49 - (NORMAL, silverman, 10000, 2) - Time: 0.07690 s - Est.: 2.343 nats
+2023-11-14 09:50:50 - Creating converter from 5 to 3
+2023-11-14 09:50:58 - (NORMAL-MIXTURE, silverman, 10000, 1) - Time: 0.07643 s - Est.: 2.420 nats
+2023-11-14 09:50:59 - (NORMAL-MIXTURE, silverman, 10000, 2) - Time: 0.07881 s - Est.: 2.430 nats
+2023-11-14 09:51:05 - (EXPONENTIAL, silverman, 10000, 1) - Time: 0.16544 s - Est.: 0.395 nats
+2023-11-14 09:51:07 - (EXPONENTIAL, silverman, 10000, 2) - Time: 0.20560 s - Est.: 0.400 nats
+2023-11-14 09:55:04 - (BIVARIATE-NORMAL, silverman, 10000, 1) - Time: 39.75035 s - Est.: 2.737 nats
+2023-11-14 09:57:22 - (BIVARIATE-NORMAL, silverman, 10000, 2) - Time: 41.53981 s - Est.: 2.722 nats
+2023-11-14 09:58:52 - (BIVARIATE-NORMAL-MIXTURE, silverman, 10000, 1) - Time: 18.77970 s - Est.: 3.452 nats
+2023-11-14 09:59:57 - (BIVARIATE-NORMAL-MIXTURE, silverman, 10000, 2) - Time: 18.87278 s - Est.: 3.451 nats
+2023-11-14 10:11:40 - (GEXP, silverman, 10000, 1) - Time: 286.25732 s - Est.: nan nats

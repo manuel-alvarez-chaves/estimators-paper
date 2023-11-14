@@ -39,3 +39,7 @@
 2023-11-14 09:50:33 - (UNIFORM, silverman, 10000, 1) - Time: 0.03603 s - Est.: 0.421 nats
 2023-11-14 09:50:34 - (UNIFORM, silverman, 10000, 2) - Time: 0.03934 s - Est.: 0.421 nats
 2023-11-14 09:50:34 - Creating converter from 5 to 3
+2023-11-14 10:57:35 - Creating converter from 3 to 5
+2023-11-14 10:57:35 - (UNIFORM, 1, 10000, 1) - Time: 0.00732 s - Est.: 0.437 nats
+2023-11-14 10:57:37 - (UNIFORM, 1, 10000, 2) - Time: 0.00676 s - Est.: 0.424 nats
+2023-11-14 10:57:38 - Creating converter from 5 to 3

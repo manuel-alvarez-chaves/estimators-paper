@@ -1,0 +1,31 @@
+2023-11-14 17:37:20 - Creating converter from 3 to 5
+2023-11-14 17:37:22 - (UNIFORM, silverman, 10000, 1) - Time: 1.02439 s - Est.: 0.451 nats
+2023-11-14 17:37:41 - (UNIFORM, silverman, 10000, 2) - Time: 1.40432 s - Est.: 0.449 nats
+2023-11-14 17:37:58 - FINISHED UNIFORM - Elapsed time: 00:00:38 - True entropy: 0.405 nats
+2023-11-14 17:42:03 - Creating converter from 3 to 5
+2023-11-14 17:42:06 - (UNIFORM, silverman, 10000, 1) - Time: 0.99350 s - Est.: 0.451 nats
+2023-11-14 17:42:21 - (UNIFORM, silverman, 10000, 2) - Time: 1.02776 s - Est.: 0.449 nats
+2023-11-14 17:42:35 - FINISHED UNIFORM - Elapsed time: 00:00:31 - True entropy: 0.405 nats
+2023-11-14 17:42:38 - (NORMAL, silverman, 10000, 1) - Time: 1.24370 s - Est.: 2.320 nats
+2023-11-14 17:42:56 - (NORMAL, silverman, 10000, 2) - Time: 1.22636 s - Est.: 2.330 nats
+2023-11-14 17:43:10 - FINISHED NORMAL - Elapsed time: 00:00:35 - True entropy: 2.335 nats
+2023-11-14 17:43:14 - (NORMAL-MIXTURE, silverman, 10000, 1) - Time: 1.24552 s - Est.: 2.379 nats
+2023-11-14 17:43:31 - (NORMAL-MIXTURE, silverman, 10000, 2) - Time: 1.22561 s - Est.: 2.387 nats
+2023-11-14 17:43:46 - FINISHED NORMAL-MIXTURE - Elapsed time: 00:00:35 - True entropy: 2.385 nats
+2023-11-14 17:43:49 - (EXPONENTIAL, silverman, 10000, 1) - Time: 1.24330 s - Est.: 0.379 nats
+2023-11-14 17:44:07 - (EXPONENTIAL, silverman, 10000, 2) - Time: 1.24148 s - Est.: 0.382 nats
+2023-11-14 17:44:22 - FINISHED EXPONENTIAL - Elapsed time: 00:00:36 - True entropy: 0.307 nats
+2023-11-14 17:44:26 - (BIVARIATE-NORMAL, silverman, 10000, 1) - Time: 1.32546 s - Est.: 2.691 nats
+2023-11-14 17:44:48 - (BIVARIATE-NORMAL, silverman, 10000, 2) - Time: 1.29525 s - Est.: 2.676 nats
+2023-11-14 17:45:03 - FINISHED BIVARIATE-NORMAL - Elapsed time: 00:00:41 - True entropy: 2.694 nats
+2023-11-14 17:45:12 - (BIVARIATE-NORMAL-MIXTURE, silverman, 10000, 1) - Time: 1.30040 s - Est.: 3.338 nats
+2023-11-14 17:45:30 - (BIVARIATE-NORMAL-MIXTURE, silverman, 10000, 2) - Time: 1.29889 s - Est.: 3.337 nats
+2023-11-14 17:45:45 - FINISHED BIVARIATE-NORMAL-MIXTURE - Elapsed time: 00:00:37 - True entropy: 3.330 nats
+2023-11-14 17:45:49 - (GEXP, silverman, 10000, 1) - Time: 1.31055 s - Est.: 2.185 nats
+2023-11-14 17:46:08 - (GEXP, silverman, 10000, 2) - Time: 1.29531 s - Est.: 2.135 nats
+2023-11-14 17:46:23 - FINISHED GEXP - Elapsed time: 00:00:37 - True entropy: 1.925 nats
+2023-11-14 17:46:27 - (4D-GAUSSIAN, silverman, 10000, 1) - Time: 1.42938 s - Est.: 4.923 nats
+2023-11-14 17:46:44 - FINISHED 4D-GAUSSIAN - Elapsed time: 00:00:20 - True entropy: 5.094 nats
+2023-11-14 17:46:49 - (10D-GAUSSIAN, silverman, 10000, 1) - Time: 1.92855 s - Est.: 1.660 nats
+2023-11-14 17:47:13 - Creating converter from 5 to 3
+2023-11-14 17:47:13 - FINISHED 10D-GAUSSIAN - Elapsed time: 00:00:28 - True entropy: 4.932 nats

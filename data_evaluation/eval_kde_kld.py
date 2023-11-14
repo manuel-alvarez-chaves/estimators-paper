@@ -9,22 +9,22 @@ from scipy.special import gamma, digamma
 from scipy.integrate import nquad
 
 from utils.tools import get_logger
-from utils.bin_evaluators import Evaluator_BIN
+from utils.kde_evaluators import Evaluator_KDE
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 os.chdir(sys.path[0]) # Set location of file to CWD
 
 # Evaluator attributes
-eval = Evaluator_BIN()
+eval = Evaluator_KDE()
 eval.data_path = "data/data.hdf5"
-eval.out_path = "results/bin.hdf5"
-eval.logger = get_logger("results/bin_kld.log")
+eval.out_path = "results/kde.hdf5"
+eval.logger = get_logger("results/kde_kld.log")
 
 eval.quantity = "KLD"
 
-eval.hyper_params = ["scott", "fd", "sturges"]
-eval.sample_sizes = [100, 200, 500, 1_000, 5_000, 10_000, 50_000, 100_000]
+eval.hyper_params = ["scott", "silverman"]
+eval.sample_sizes = [100, 200, 500, 1_000, 5_000, 10_000, 25_000]
 eval.seeds = range(1, 3)
 
 # Create database (if not existing)
@@ -44,7 +44,7 @@ with h5py.File(eval.data_path, "r") as f:
 true_kld = np.log(dist2_params[0][1] / dist1_params[0][1])
 
 start_time = time.perf_counter()
-eval.evaluate_kld(experiment, "scott")
+eval.evaluate_kld(experiment, "silverman", False)
 elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
 
 # Save
@@ -66,7 +66,7 @@ true_kld = 0.5 * (
 ) # Reference
 
 start_time = time.perf_counter()
-eval.evaluate_kld(experiment, "scott")
+eval.evaluate_kld(experiment, "silverman", False)
 elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
 
 # Save
@@ -97,9 +97,8 @@ norm_lims = [[-15, 25]]
 
 true_kld = nquad(kld_normals, norm_lims, args=(dist1_params, dist2_params,))[0] # Numerical Integration Solution
 
-
 start_time = time.perf_counter()
-eval.evaluate_kld(experiment, "scott")
+eval.evaluate_kld(experiment, "silverman", False)
 elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
 
 # Save
@@ -117,7 +116,7 @@ with h5py.File(eval.data_path, "r") as f:
 true_kld = np.log(1 / dist1_params[0][1]) - np.log(1 / dist2_params[0][1]) + dist1_params[0][1] / dist2_params[0][1] - 1 # Reference
 
 start_time = time.perf_counter()
-eval.evaluate_kld(experiment, "scott")
+eval.evaluate_kld(experiment, "silverman", False)
 elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
 
 # Save
@@ -144,7 +143,7 @@ true_kld = 0.5 * (
 )
 
 start_time = time.perf_counter()
-eval.evaluate_kld(experiment, "scott")
+eval.evaluate_kld(experiment, "silverman", False)
 elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
 
 # Save
@@ -175,7 +174,7 @@ mnorm_lims = [[-7, 7], [-7, 7]]
 true_kld = nquad(kld_mnorms, mnorm_lims, args=(dist1_params, dist2_params,))[0]
 
 start_time = time.perf_counter()
-eval.evaluate_kld(experiment, "scott")
+eval.evaluate_kld(experiment, "silverman", False)
 elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
 
 # Save
@@ -208,7 +207,7 @@ gexp_lims = [[0, 15], [0, 12]]
 true_kld = nquad(kld_gamma_exponentials, gexp_lims, args=(dist1_params, dist2_params,))[0]
 
 start_time = time.perf_counter()
-eval.evaluate_kld(experiment, "scott")
+eval.evaluate_kld(experiment, "silverman", False)
 elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
 
 # Save
@@ -239,9 +238,40 @@ dist2 = stats.multivariate_normal(mean=dist2_params[0][0], cov=dist2_params[0][1
 true_kld = kld_scipy_mnorm(dist1, dist2)
 
 start_time = time.perf_counter()
-eval.evaluate_kld(experiment, "scott")
+eval.evaluate_kld(experiment, "silverman", False)
 elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
 
 # Save
 eval.write_double_to_hdf5(experiment, "4dgauss||4dgauss", true_kld)
+eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True KLD: {true_kld:.3f} nats")
+
+# # # # # 10D-GAUSSIAN # # # # #
+
+experiment = "10d-gaussian"
+
+# Calculate Truth
+with h5py.File(eval.data_path, "r") as f:
+    dist1_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
+    dist2_params = ast.literal_eval(f[experiment]["q"].attrs["hyper_params"])
+
+def kld_scipy_mnorm(d1, d2):
+    a = np.log(np.linalg.det(d2.cov) / np.linalg.det(d1.cov))
+    b = np.trace(np.linalg.inv(d2.cov) @ d1.cov)
+    c = (d1.mean - d2.mean) @ np.linalg.inv(d2.cov) @ (d1.mean - d2.mean).T
+    n = len(d1.mean)
+
+    kld = 0.5 * (a + b) + 0.5 * (c - n)
+    return kld
+
+dist1 = stats.multivariate_normal(mean=dist1_params[0][0], cov=dist1_params[0][1])
+dist2 = stats.multivariate_normal(mean=dist2_params[0][0], cov=dist2_params[0][1])
+
+true_kld = kld_scipy_mnorm(dist1, dist2)
+
+start_time = time.perf_counter()
+eval.evaluate_kld(experiment, "silverman", False)
+elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
+
+# Save
+eval.write_double_to_hdf5(experiment, "10dgauss||10dgauss", true_kld)
 eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True KLD: {true_kld:.3f} nats")

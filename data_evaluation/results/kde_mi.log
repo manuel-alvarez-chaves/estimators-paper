@@ -1,0 +1,15 @@
+2023-11-14 18:24:22 - Creating converter from 3 to 5
+2023-11-14 18:24:30 - (BIVARIATE-NORMAL, silverman, 10000, 1) - Time: 3.00057 s - Est.: 0.156 nats
+2023-11-14 18:25:21 - (BIVARIATE-NORMAL, silverman, 10000, 2) - Time: 3.73719 s - Est.: 0.161 nats
+2023-11-14 18:26:06 - Creating converter from 5 to 3
+2023-11-14 18:26:06 - FINISHED BIVARIATE-NORMAL - Elapsed time: 00:01:43 - True MI: 0.144 nats
+2023-11-14 18:27:01 - (BIVARIATE-NORMAL-MIXTURE, silverman, 10000, 1) - Time: 3.75082 s - Est.: 0.132 nats
+2023-11-14 18:27:55 - (BIVARIATE-NORMAL-MIXTURE, silverman, 10000, 2) - Time: 3.72665 s - Est.: 0.133 nats
+2023-11-14 18:28:49 - FINISHED BIVARIATE-NORMAL-MIXTURE - Elapsed time: 00:01:58 - True MI: 0.140 nats
+2023-11-14 18:29:01 - (GEXP, silverman, 10000, 1) - Time: 4.57750 s - Est.: 0.110 nats
+2023-11-14 18:30:09 - (GEXP, silverman, 10000, 2) - Time: 4.50177 s - Est.: 0.117 nats
+2023-11-14 18:31:04 - FINISHED GEXP - Elapsed time: 00:02:14 - True MI: 0.158 nats
+2023-11-14 18:31:17 - (4D-GAUSSIAN, silverman, 10000, 1) - Time: 4.84368 s - Est.: 0.358 nats
+2023-11-14 18:32:07 - FINISHED 4D-GAUSSIAN - Elapsed time: 00:01:02 - True MI: 0.235 nats
+2023-11-14 18:32:20 - (10D-GAUSSIAN, silverman, 10000, 1) - Time: 5.01886 s - Est.: 1.807 nats
+2023-11-14 18:32:20 - FINISHED 10D-GAUSSIAN - Elapsed time: 00:00:13 - True MI: 1.099 nats

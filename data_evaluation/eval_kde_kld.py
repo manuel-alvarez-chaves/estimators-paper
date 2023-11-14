@@ -25,7 +25,7 @@ eval.quantity = "KLD"
 
 eval.hyper_params = ["scott", "silverman"]
 eval.sample_sizes = [100, 200, 500, 1_000, 5_000, 10_000, 25_000]
-eval.seeds = range(1, 3)
+eval.seeds = range(1, 501)
 
 # Create database (if not existing)
 eval.create_database()

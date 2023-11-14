@@ -17,7 +17,7 @@ os.chdir(sys.path[0]) # Set location of file to CWD
 
 # Evaluator attributes
 eval = Evaluator_KNN()
-eval.data_path = "data.hdf5"
+eval.data_path = "data/data.hdf5"
 eval.out_path = "results/knn.hdf5"
 eval.logger = get_logger("results/knn_mi.log")
 
@@ -25,7 +25,7 @@ eval.quantity = "MI"
 
 eval.hyper_params = [1, 3, 5, 15, 50]
 eval.sample_sizes = [100, 200, 500, 1_000, 5_000, 10_000, 50_000, 100_000]
-eval.seeds = range(1, 3)
+eval.seeds = range(1, 301)
 
 # Create database (if not existing)
 eval.create_database()

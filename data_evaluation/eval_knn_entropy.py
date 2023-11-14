@@ -26,7 +26,7 @@ eval.quantity = "H"
 
 eval.hyper_params = [1, 3, 5, 15, 50]
 eval.sample_sizes = [100, 200, 500, 1_000, 5_000, 10_000, 50_000, 100_000]
-eval.seeds = range(1, 3)
+eval.seeds = range(1, 301)
 
 # Create database (if not existing)
 eval.create_database()

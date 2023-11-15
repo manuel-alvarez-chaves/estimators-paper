@@ -209,6 +209,7 @@ eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} 
 # # # # # 10D-GAUSSIAN # # # # #
 
 experiment = "10d-gaussian"
+eval.sample_sizes = [100, 200, 500, 1_000, 5_000, 10_000, 50_000]
 
 # Calculate Truth
 with h5py.File(eval.data_path, "r") as f:

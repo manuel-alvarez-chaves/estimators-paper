@@ -4,21 +4,20 @@ import os
 import sys
 import time
 
-# Globals
-os.environ["OMP_NUM_THREADS"] = "12"
-
 # Required modules
 import h5py
 import numpy as np
 from scipy import stats
 from scipy.integrate import nquad
 from scipy.special import digamma
+from utils import limit_threads
 from utils.kde_evaluators import Evaluator_KDE
 from utils.tools import get_logger
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 os.chdir(sys.path[0])  # Set location of file to CWD
+limit_threads.print_threads() # Check on num. of threads being used
 
 # Evaluator attributes
 eval = Evaluator_KDE()
@@ -101,7 +100,9 @@ def mi_mnorm(x, y, params1):
 
 binorm_lims = [[-7, 7], [-7, 7]]
 
-true_mi = nquad(mi_mnorm, binorm_lims, args=(dist_params,))[0]  # Numerical Integration Result
+true_mi = nquad(mi_mnorm, binorm_lims, args=(dist_params,))[
+    0
+]  # Numerical Integration Result
 
 start_time = time.perf_counter()
 eval.evaluate_mutual_information(experiment, "silverman", True)

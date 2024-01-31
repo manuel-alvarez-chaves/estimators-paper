@@ -1,19 +1,24 @@
 # File/OS management
-import os, sys, time
-import h5py, ast
+import ast
+import os
+import sys
+import time
+
+# Globals
+os.environ["OMP_NUM_THREADS"] = "12"
 
 # Required modules
+import h5py
 import numpy as np
 from scipy import stats
-from scipy.special import gamma, digamma
 from scipy.integrate import nquad
-
-from utils.tools import get_logger
+from scipy.special import digamma
 from utils.kde_evaluators import Evaluator_KDE
+from utils.tools import get_logger
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-os.chdir(sys.path[0]) # Set location of file to CWD
+os.chdir(sys.path[0])  # Set location of file to CWD
 
 # Evaluator attributes
 eval = Evaluator_KDE()
@@ -43,7 +48,7 @@ with h5py.File(eval.data_path, "r") as f:
 
 cov = np.array(dist_params[0][1])
 d = len(cov)
-true_mi = 0.5 * np.log(cov[0, 0] * cov[-1, -1] / np.linalg.det(cov)) # Reference
+true_mi = 0.5 * np.log(cov[0, 0] * cov[-1, -1] / np.linalg.det(cov))  # Reference
 
 start_time = time.perf_counter()
 eval.evaluate_mutual_information(experiment, "silverman", True)
@@ -51,7 +56,9 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 
 # Save
 eval.write_single_to_hdf5(experiment, true_mi)
-eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True MI: {true_mi:.3f} nats")
+eval.logger.info(
+    f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True MI: {true_mi:.3f} nats"
+)
 
 # # # # # BIVARIATE-NORMAL-MIXTURE # # # # #
 
@@ -61,6 +68,7 @@ experiment = "bivariate-normal-mixture"
 with h5py.File(eval.data_path, "r") as f:
     dist_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
 
+
 def pdf_normal(x, params):
     y = 0.0
     for dist in params:
@@ -68,12 +76,14 @@ def pdf_normal(x, params):
         y += stats.norm(loc=l, scale=s).pdf(x) * w
     return y
 
+
 def pdf_mnorm(x, y, params):
     z = 0.0
     for dist in params:
         l, s, w = dist
         z += stats.multivariate_normal(mean=l, cov=s).pdf(np.dstack((x, y))) * w
     return z
+
 
 def mi_mnorm(x, y, params1):
     params_x = []
@@ -85,13 +95,13 @@ def mi_mnorm(x, y, params1):
     pxy = pdf_mnorm(x, y, params1)
     px = pdf_normal(x, params_x)
     py = pdf_normal(y, params_y)
-    
+
     return pxy * np.log(pxy / (px * py))
 
 
 binorm_lims = [[-7, 7], [-7, 7]]
 
-true_mi = nquad(mi_mnorm, binorm_lims, args=(dist_params,))[0] # Numerical Integration Result
+true_mi = nquad(mi_mnorm, binorm_lims, args=(dist_params,))[0]  # Numerical Integration Result
 
 start_time = time.perf_counter()
 eval.evaluate_mutual_information(experiment, "silverman", True)
@@ -99,7 +109,9 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 
 # Save
 eval.write_single_to_hdf5(experiment, true_mi)
-eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True MI: {true_mi:.3f} nats")
+eval.logger.info(
+    f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True MI: {true_mi:.3f} nats"
+)
 
 # # # # # GAMMA-EXPONENTIAL # # # # #
 
@@ -110,7 +122,7 @@ with h5py.File(eval.data_path, "r") as f:
     dist_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
 
 tetha = dist_params[0][0]
-true_mi = digamma(tetha) - np.log(tetha) + (1 / tetha) # Reference
+true_mi = digamma(tetha) - np.log(tetha) + (1 / tetha)  # Reference
 
 start_time = time.perf_counter()
 eval.evaluate_mutual_information(experiment, "silverman", True)
@@ -118,4 +130,6 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 
 # Save
 eval.write_single_to_hdf5(experiment, true_mi)
-eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True MI: {true_mi:.3f} nats")
+eval.logger.info(
+    f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True MI: {true_mi:.3f} nats"
+)

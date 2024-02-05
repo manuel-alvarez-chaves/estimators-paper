@@ -1,0 +1,37 @@
+### LINES
+lines.linewidth  : 1.0
+lines.marker     : o
+lines.markersize : 3.0
+
+### FONT
+font.family : Verdana
+font.size   : 8.0
+
+### TEXT
+text.usetex : True
+
+### AXES
+axes.grid       : True
+axes.titlesize  : small
+axes.titlepad   : 6.0   
+axes.labelsize  : x-small  
+axes.prop_cycle : cycler(color=["#7b85d4", "#f37738", "#83c995", "#d7369e", "#c4c9d8", "#859795", "#e9d043", "ad5b50"])
+
+### TICKS
+xtick.labelsize : x-small
+ytick.labelsize : x-small
+
+### GRIDS
+grid.color       :   k
+grid.linestyle   :   dashed
+grid.linewidth   :   0.4
+grid.alpha       :   0.3
+
+### LEGEND
+legend.fancybox : False
+legend.fontsize : xx-small
+
+### FIGURE
+# figure.dpi : 100
+# figure.figsize : 6, 5
+# figure.autolayout : True

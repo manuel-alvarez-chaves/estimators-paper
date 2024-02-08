@@ -33,7 +33,7 @@ eval.create_group()
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# # # # # BIVARIATE NORMAL # # # # #
+"""# # # # # BIVARIATE NORMAL # # # # #
 
 experiment = "bivariate-normal"
 
@@ -118,12 +118,12 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 
 # Save
 eval.write_single_to_hdf5(experiment, true_mi)
-eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True MI: {true_mi:.3f} nats")
+eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True MI: {true_mi:.3f} nats")"""
 
 # # # # # 4D GAUSSIAN # # # # #
 
 experiment = "4d-gaussian"
-eval.seeds = range(1, 2)
+eval.seeds = range(2, 301)
 
 # Calculate Truth
 with h5py.File(eval.data_path, "r") as f:

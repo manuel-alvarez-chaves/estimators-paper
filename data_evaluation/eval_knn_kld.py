@@ -19,7 +19,7 @@ os.chdir(sys.path[0]) # Set location of file to CWD
 eval = Evaluator_KNN()
 eval.data_path = "data/data.hdf5"
 eval.out_path = "results/knn.hdf5"
-eval.logger = get_logger("results/knn_mi.log")
+eval.logger = get_logger("results/knn_kld.log")
 
 eval.quantity = "KLD"
 

@@ -37,7 +37,7 @@ eval.create_group()
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# # # # # BIVARIATE-NORMAL # # # # #
+"""# # # # # BIVARIATE-NORMAL # # # # #
 
 experiment = "bivariate-normal"
 
@@ -112,11 +112,11 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 eval.write_single_to_hdf5(experiment, true_mi)
 eval.logger.info(
     f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True MI: {true_mi:.3f} nats"
-)
+)"""
 
 # # # # # GAMMA-EXPONENTIAL # # # # #
-
 experiment = "gexp"
+eval.sample_sizes = [100, 200, 500, 1_000, 5_000, 10_000]
 
 # Calculate Truth
 with h5py.File(eval.data_path, "r") as f:

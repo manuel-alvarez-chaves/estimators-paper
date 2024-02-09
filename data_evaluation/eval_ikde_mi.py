@@ -4,11 +4,12 @@ import os
 import sys
 import time
 
+# Limit threads (must be placed before importing NumPy and SciPy)
+os.environ["OMP_NUM_THREADS"] = "1"
+
 # Required modules
 import h5py
 import numpy as np
-from scipy import stats
-from scipy.integrate import nquad
 from scipy.special import digamma
 from utils import limit_threads
 from utils.kde_evaluators import Evaluator_KDE
@@ -29,7 +30,7 @@ eval.quantity = "MI"
 
 eval.hyper_params = ["silverman"]
 eval.sample_sizes = [100, 200, 500, 1_000, 5_000, 10_000, 25_000]
-eval.seeds = range(1, 301)
+eval.seeds = range(33, 301)
 
 # Create database (if not existing)
 eval.create_database()

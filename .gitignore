@@ -2,7 +2,7 @@
 *.hdf5
 
 # Notebooks
-*.ipynb
+# *.ipynb
 
 # Plots
 *.jpg

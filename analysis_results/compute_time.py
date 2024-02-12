@@ -41,7 +41,9 @@ for file in path_logs:
                 "Case", "MEAN", "MIN", "MAX", "COUNT", "LATEX"
             )
         )
+        
         for key, val in res.items():
+            val = val[-300:] # Slice to last 300 iterations
             res_mean = np.mean(val)
             res_min = np.min(val)
             res_max = np.max(val)

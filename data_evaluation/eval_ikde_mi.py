@@ -11,14 +11,12 @@ os.environ["OMP_NUM_THREADS"] = "1"
 import h5py
 import numpy as np
 from scipy.special import digamma
-from utils import limit_threads
 from utils.kde_evaluators import Evaluator_KDE
 from utils.tools import get_logger
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 os.chdir(sys.path[0])  # Set location of file to CWD
-limit_threads.print_threads() # Check on num. of threads being used
 
 # Evaluator attributes
 eval = Evaluator_KDE()
@@ -117,7 +115,8 @@ eval.logger.info(
 
 # # # # # GAMMA-EXPONENTIAL # # # # #
 experiment = "gexp"
-eval.sample_sizes = [100, 200, 500, 1_000, 5_000, 10_000]
+eval.sample_sizes = [100, 200, 500] #, 1_000, 5_000, 10_000]
+eval.seeds = range(1, 3)
 
 # Calculate Truth
 with h5py.File(eval.data_path, "r") as f:

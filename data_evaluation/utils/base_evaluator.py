@@ -65,9 +65,9 @@ class Evaluator():
     def append_to_hdf5(self, name_to_access, data_to_append):
         with h5py.File(self.out_path, "a") as f:
             # Attributes
-            seeds_in_dset = f["h"]["uniform"].attrs["seeds"]
-            del f["h"]["uniform"].attrs["seeds"]
-            f["h"]["uniform"].attrs["seeds"] = np.append(seeds_in_dset, self.seeds)
+            seeds_in_dset = f[self.quantity][name_to_access].attrs["seeds"]
+            del f[self.quantity][name_to_access].attrs["seeds"]
+            f[self.quantity][name_to_access].attrs["seeds"] = np.append(seeds_in_dset, self.seeds)
 
             # Data
             dset = f[self.quantity][name_to_access]

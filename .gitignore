@@ -1,5 +1,5 @@
 # Data
-*.hdf5
+*.zip
 
 # Notebooks
 # *.ipynb
@@ -99,4 +99,4 @@ dmypy.json
 cython_debug/
 
 # Miscellaneous
-*.log
+data_evaluation/data/data.hdf5

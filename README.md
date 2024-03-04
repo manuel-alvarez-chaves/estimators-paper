@@ -1,4 +1,4 @@
-# Non-Parameteric Estimation in Information Theory
+# Non-Parametric Estimation in Information Theory
 
 ## 1. Introduction
 
@@ -21,7 +21,7 @@ The projects is organizes as follows:
 
 ## 2. Installation
 
-Code was written in `Python 3.11.5` but should be comptaible with later and earlier versions of Python down to `Python 3.6`.  Check the `requirements.txt` file for any dependency issues.
+Code was written in `Python 3.11.5` but should be compatible with later and earlier versions of Python down to `Python 3.6`.  Check the `requirements.txt` file for any dependency issues.
 
 Usage is recommended by cloning the repository to a local directory and setting up the required environment using `venv` and `pip`:
 

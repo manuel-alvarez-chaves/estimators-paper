@@ -1,5 +1,7 @@
 # Non-Parametric Estimation in Information Theory
 
+[![](<https://img.shields.io/badge/DOI-10.18419/darus--4087-blue>)](https://www.doi.org/10.18419/darus-4087)
+
 ## 1. Introduction
 
 This is a repository for our paper on: "Evaluating Density- and Nearest Neighbor-based Methods to Accurately Estimate Information-Theoretic Quantities from Multi-Dimensional Sample Data".

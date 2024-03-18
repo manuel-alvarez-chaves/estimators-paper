@@ -100,3 +100,4 @@ cython_debug/
 
 # Miscellaneous
 data_evaluation/data/data.hdf5
+data_evaluation/data/file-upload.sh

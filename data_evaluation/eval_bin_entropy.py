@@ -1,6 +1,9 @@
 # File/OS management
-import os, sys, time
-import h5py, ast
+import os
+import sys
+import time
+import ast
+import h5py
 
 # Required modules
 import numpy as np
@@ -13,7 +16,7 @@ from utils.bin_evaluators import Evaluator_BIN
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-os.chdir(sys.path[0]) # Set location of file to CWD
+os.chdir(sys.path[0])  # Set location of file to CWD
 
 # Evaluator attributes
 eval = Evaluator_BIN()
@@ -33,14 +36,14 @@ eval.create_group()
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# # # # # UNIFORM # # # # #
+"""# # # # # UNIFORM # # # # #
 
 experiment = "uniform"
 # Calculate Truth
 with h5py.File(eval.data_path, "r") as f:
     dist_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
 
-true_h = np.log(dist_params[0][1]) # Reference
+true_h = np.log(dist_params[0][1])  # Reference
 
 start_time = time.perf_counter()
 eval.evaluate_entropy(experiment, "scott")
@@ -48,7 +51,9 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 
 # Save
 eval.write_single_to_hdf5(experiment, true_h)
-eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats")
+eval.logger.info(
+    f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats"
+)
 
 # # # # # NORMAL # # # # #
 
@@ -58,7 +63,7 @@ experiment = "normal"
 with h5py.File(eval.data_path, "r") as f:
     dist_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
 
-true_h = 0.5 * np.log(2 * np.pi * (dist_params[0][1]**2)) + 0.5 # Reference
+true_h = 0.5 * np.log(2 * np.pi * (dist_params[0][1] ** 2)) + 0.5  # Reference
 
 start_time = time.perf_counter()
 eval.evaluate_entropy(experiment, "scott")
@@ -66,7 +71,9 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 
 # Save
 eval.write_single_to_hdf5(experiment, true_h)
-eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats")
+eval.logger.info(
+    f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats"
+)
 
 # # # # # NORMAL-MIXTURE # # # # #
 
@@ -76,6 +83,7 @@ experiment = "normal-mixture"
 with h5py.File(eval.data_path, "r") as f:
     dist_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
 
+
 def pdf_normal(x, params):
     y = 0.0
     for dist in params:
@@ -83,13 +91,17 @@ def pdf_normal(x, params):
         y += stats.norm(loc=l, scale=s).pdf(x) * w
     return y
 
+
 def h_normal(x, params):
     p = pdf_normal(x, params)
     return -1 * p * np.log(p)
 
+
 norm_lims = [[-15, 25]]
 
-true_h = nquad(h_normal, norm_lims, args=(dist_params,))[0] # Numerical Integration Result
+true_h = nquad(h_normal, norm_lims, args=(dist_params,))[
+    0
+]  # Numerical Integration Result
 
 start_time = time.perf_counter()
 eval.evaluate_entropy(experiment, "scott")
@@ -97,7 +109,9 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 
 # Save
 eval.write_single_to_hdf5(experiment, true_h)
-eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats")
+eval.logger.info(
+    f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats"
+)
 
 # # # # # EXPONENTIAL # # # # #
 
@@ -107,7 +121,7 @@ experiment = "exponential"
 with h5py.File(eval.data_path, "r") as f:
     dist_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
 
-true_h = 1 - np.log(1/dist_params[0][1]) # Reference
+true_h = 1 - np.log(1 / dist_params[0][1])  # Reference
 
 start_time = time.perf_counter()
 eval.evaluate_entropy(experiment, "scott")
@@ -115,19 +129,23 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 
 # Save
 eval.write_single_to_hdf5(experiment, true_h)
-eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats")
+eval.logger.info(
+    f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats"
+)
 
 # # # # # BIVARIATE-NORMAL # # # # #
 
 experiment = "bivariate-normal"
-eval.hyper_params = ["scott", "fd", "sturges"] # Remove the QS estimator
+eval.hyper_params = ["scott", "fd", "sturges"]  # Remove the QS estimator
 
 # Calculate Truth
 with h5py.File(eval.data_path, "r") as f:
     dist_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
 
 d = len(dist_params[0][1])
-true_h = 0.5 * np.log((2 * np.pi * np.exp(1)) ** d * np.linalg.det(dist_params[0][1])) # Reference
+true_h = 0.5 * np.log(
+    (2 * np.pi * np.exp(1)) ** d * np.linalg.det(dist_params[0][1])
+)  # Reference
 
 start_time = time.perf_counter()
 eval.evaluate_entropy(experiment, "scott")
@@ -135,7 +153,9 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 
 # Save
 eval.write_single_to_hdf5(experiment, true_h)
-eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats")
+eval.logger.info(
+    f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats"
+)
 
 # # # # # BIVARIATE-NORMAL-MIXTURE # # # # #
 
@@ -145,6 +165,7 @@ experiment = "bivariate-normal-mixture"
 with h5py.File(eval.data_path, "r") as f:
     dist_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
 
+
 def pdf_mnorm(x, y, params):
     z = 0.0
     for dist in params:
@@ -152,13 +173,17 @@ def pdf_mnorm(x, y, params):
         z += stats.multivariate_normal(mean=l, cov=s).pdf(np.dstack((x, y))) * w
     return z
 
+
 def h_mnorm(x, y, params1):
     p = pdf_mnorm(x, y, params1)
     return -1 * p * np.log(p)
 
+
 binorm_lims = [[-7, 7], [-7, 7]]
 
-true_h = nquad(h_mnorm, binorm_lims, args=(dist_params,))[0] # Numerical Integration Result
+true_h = nquad(h_mnorm, binorm_lims, args=(dist_params,))[
+    0
+]  # Numerical Integration Result
 
 start_time = time.perf_counter()
 eval.evaluate_entropy(experiment, "scott")
@@ -166,7 +191,9 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 
 # Save
 eval.write_single_to_hdf5(experiment, true_h)
-eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats")
+eval.logger.info(
+    f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats"
+)
 
 # # # # # GAMMA-EXPONENTIAL # # # # #
 
@@ -177,7 +204,9 @@ with h5py.File(eval.data_path, "r") as f:
     dist_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
 
 tetha = dist_params[0][0]
-true_h = 1 +  tetha - tetha * digamma(tetha) + np.log(gamma(tetha)) - np.log(1.0) # Reference
+true_h = (
+    1 + tetha - tetha * digamma(tetha) + np.log(gamma(tetha)) - np.log(1.0)
+)  # Reference
 
 start_time = time.perf_counter()
 eval.evaluate_entropy(experiment, "scott")
@@ -185,21 +214,48 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 
 # Save
 eval.write_single_to_hdf5(experiment, true_h)
-eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats")
+eval.logger.info(
+    f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats"
+)
+"""
 
 # # # # # 4D-GAUSSIAN # # # # #
 
 experiment = "4d-gaussian"
+eval.hyper_params = ["scott", "fd", "sturges"]  # Remove the QS estimator
 
 # Calculate Truth
 with h5py.File(eval.data_path, "r") as f:
     dist_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
 
 d = len(dist_params[0][1])
+true_h = 0.5 * np.log(
+    (2 * np.pi * np.exp(1)) ** d * np.linalg.det(dist_params[0][1])
+)  # Reference
+
+start_time = time.perf_counter()
+eval.evaluate_uniform_entropy(experiment, "scott")
+elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
+
+# Save
+eval.write_single_to_hdf5(experiment, true_h)
+eval.logger.info(
+    f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True entropy: {true_h:.3f} nats"
+)
+
+# # # # # 10D-GAUSSIAN # # # # #
+
+experiment = "10d-gaussian"
+
+# Calculate Truth
+with h5py.File(eval.data_path, "r") as f:
+   dist_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
+
+d = len(dist_params[0][1])
 true_h = 0.5 * np.log((2 * np.pi * np.exp(1)) ** d * np.linalg.det(dist_params[0][1])) # Reference
 
 start_time = time.perf_counter()
-eval.evaluate_entropy(experiment, "scott")
+eval.evaluate_uniform_entropy(experiment, "scott")
 elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
 
 # Save

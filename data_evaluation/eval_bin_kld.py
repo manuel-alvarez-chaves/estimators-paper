@@ -25,7 +25,7 @@ eval.quantity = "KLD"
 
 eval.hyper_params = ["scott", "fd", "sturges"]
 eval.sample_sizes = [100, 200, 500, 1_000, 5_000, 10_000, 50_000, 100_000]
-eval.seeds = range(1, 501)
+eval.seeds = range(1, 301)
 
 # Create database (if not existing)
 eval.create_database()
@@ -33,7 +33,7 @@ eval.create_group()
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# # # # # UNIFORM # # # # #
+"""# # # # # UNIFORM # # # # #
 
 experiment = "uniform"
 # Calculate Truth
@@ -214,6 +214,7 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 # Save
 eval.write_double_to_hdf5(experiment, "gexp||gexp", true_kld)
 eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True KLD: {true_kld:.3f} nats")
+"""
 
 # # # # # 4D-GAUSSIAN # # # # #
 
@@ -244,4 +245,35 @@ elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start
 
 # Save
 eval.write_double_to_hdf5(experiment, "4dgauss||4dgauss", true_kld)
+eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True KLD: {true_kld:.3f} nats")
+
+# # # # # 10D-GAUSSIAN # # # # #
+
+experiment = "10d-gaussian"
+
+# Calculate Truth
+with h5py.File(eval.data_path, "r") as f:
+    dist1_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
+    dist2_params = ast.literal_eval(f[experiment]["q"].attrs["hyper_params"])
+
+def kld_scipy_mnorm(d1, d2):
+    a = np.log(np.linalg.det(d2.cov) / np.linalg.det(d1.cov))
+    b = np.trace(np.linalg.inv(d2.cov) @ d1.cov)
+    c = (d1.mean - d2.mean) @ np.linalg.inv(d2.cov) @ (d1.mean - d2.mean).T
+    n = len(d1.mean)
+
+    kld = 0.5 * (a + b) + 0.5 * (c - n)
+    return kld
+
+dist1 = stats.multivariate_normal(mean=dist1_params[0][0], cov=dist1_params[0][1])
+dist2 = stats.multivariate_normal(mean=dist2_params[0][0], cov=dist2_params[0][1])
+
+true_kld = kld_scipy_mnorm(dist1, dist2)
+
+start_time = time.perf_counter()
+eval.evaluate_kld(experiment, "scott")
+elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
+
+# Save
+eval.write_double_to_hdf5(experiment, "10dgauss||10dgauss", true_kld)
 eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True KLD: {true_kld:.3f} nats")

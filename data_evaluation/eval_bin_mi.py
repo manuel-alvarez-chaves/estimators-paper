@@ -123,7 +123,6 @@ eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} 
 # # # # # 4D GAUSSIAN # # # # #
 
 experiment = "4d-gaussian"
-eval.seeds = range(2, 301)
 
 # Calculate Truth
 with h5py.File(eval.data_path, "r") as f:
@@ -134,7 +133,27 @@ d = len(cov)
 true_mi = 0.5 * np.log(np.linalg.det(cov[:d-1,:d-1]) * cov[-1, -1] / np.linalg.det(cov)) # Reference
 
 start_time = time.perf_counter()
-eval.evaluate_mutual_information(experiment, "scott")
+eval.evaluate_uniform_mutual_information(experiment, "scott")
+elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
+
+# Save
+eval.write_single_to_hdf5(experiment, true_mi)
+eval.logger.info(f"FINISHED {experiment.upper()} - Elapsed time: {elapsed_time} - True MI: {true_mi:.3f} nats")
+
+# # # # # 10D-GAUSSIAN # # # # #
+
+experiment = "10d-gaussian"
+
+# Calculate Truth
+with h5py.File(eval.data_path, "r") as f:
+   dist_params = ast.literal_eval(f[experiment]["p"].attrs["hyper_params"])
+
+cov = np.array(dist_params[0][1])
+d = len(cov)
+true_mi = 0.5 * np.log(np.linalg.det(cov[:d-1,:d-1]) * cov[-1, -1] / np.linalg.det(cov)) # Reference
+
+start_time = time.perf_counter()
+eval.evaluate_uniform_mutual_information(experiment, "scott")
 elapsed_time = time.strftime("%H:%M:%S", time.gmtime(time.perf_counter() - start_time))
 
 # Save
